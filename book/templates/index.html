@@ -1,0 +1,180 @@
+{% load static  %}
+<style>
+    body{
+        font-family: Poppins, sans-serif;
+     background-image: url("static/images/q.jpg");
+     height: 500px; /* You must set a specified height */
+     background-position: center; /* Center the image */
+     background-repeat: no-repeat; /* Do not repeat the image */
+     background-size: cover;
+    }
+    table, th, td{
+        font-family: Poppins, sans-serif;
+        border: 0px solid #ddd;
+        border-color:black;
+        height: auto;
+        width: auto;
+        margin: auto;
+        line-height: 100px;
+        text-align:center;
+        font-size:30px;
+        font-style: italic;
+        font-weight: bold;
+        background-color: #72aee6;
+        color: black;
+        border-radius: 10px;
+        font-family: Cursive;
+
+    }
+    p{
+        margin:20px auto 5px auto;
+    }
+ 
+    input,button{
+         height: 50px;
+         width : 100PX;
+         font-size:30px;
+         border-radius: 10px;
+         text-align: center;
+         align:center;
+         font-family: Cursive;
+         font-style: italic;
+        font-weight: bold;
+        }
+        
+div{
+    border-radius: 10px;
+
+    text-align: center;
+    align:center;
+    color:#043959;
+    font-family: Cursive;
+    font-size:40px;
+    font-style: italic;
+    font-weight: bold;
+    margin:50px auto 5px auto;
+    background-color: #92c2e6;
+    width:auto;
+
+}
+    </style>
+<head>
+    <title> Knapsack problem</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                $('#result').click(function(){
+                const  v1 = document.getElementById('v1').value;
+                const  v2 = document.getElementById('v2').value;
+                const  v3 = document.getElementById('v3').value;
+                const  v4 = document.getElementById('v4').value;
+                const  v5 = document.getElementById('v5').value;
+                const  v6 = document.getElementById('v6').value;
+                const  v7 = document.getElementById('v7').value;
+
+                const  w1 = document.getElementById('w1').value;
+                const  w2 = document.getElementById('w2').value;
+                const  w3 = document.getElementById('w3').value;
+                const  w4 = document.getElementById('w4').value;
+                const  w5 = document.getElementById('w5').value;
+                const  w6 = document.getElementById('w6').value;
+                const  w7 = document.getElementById('w7').value;
+
+                const  maxw= document.getElementById('maxw').value;
+                    
+                    $.ajax(
+                        {
+                            url:'',
+                            type:'get',
+                            data:{
+                               'v1':v1,
+                               'v2':v2,
+                               'v3':v3,
+                               'v4':v4,
+                               'v5':v5,
+                               'v6':v6,
+                               'v7':v7,
+                               'w1':w1,
+                               'w2':w2,
+                               'w3':w3,
+                               'w4':w4,
+                               'w5':w5,
+                               'w6':w6,
+                               'w7':w7,
+                               'maxw':maxw
+                            },
+
+                            success:function(response){
+                                $('#div').empty().append(response.the,response.result,response.and,response.value);
+                               
+                               
+                               
+                               
+                              
+                            },
+                        }
+                    )    
+               
+                    
+                    })
+                })
+              
+        
+        
+        
+    </script>
+    
+</head>
+
+<body id="body">
+    <table id="table">
+        <caption style="  font: italic normal bold 70px Cursive	;color:white;margin:30px auto 20px auto;">Knapsack problem</caption>
+    <tr>
+        <th>Item symbol:</th>
+        <th>a</th>
+        <th>b</th>
+        <th>c</th>
+        <th>d</th>
+        <th>e</th>
+        <th>f</th>
+        <th>g</th>
+    </tr>
+    <tr>    
+    <th>Item benefit:</th>
+    <th><input type="number" id="v1"  style="border-color:black"></th>
+    <th><input type="number" id="v2"  style="border-color:black"></th>
+    <th><input type="number" id="v3" style="border-color:black"></th>
+    <th><input type="number" id="v4" style="border-color:black"></th>
+    <th><input type="number" id="v5"  style="border-color:black"></th>
+    <th><input type="number" id="v6" style="border-color:black"></th>
+    <th><input type="number" id="v7" style="border-color:black"></th></tr>
+    <th>Item weight:</th>
+    <th><input type="number" id="w1"  style="border-color:black"></th>
+    <th><input type="number" id="w2" style="border-color:black"></th>
+    <th><input type="number" id="w3"  style="border-color:black"></th>
+    <th><input type="number" id="w4" style="border-color:black"></th>
+    <th><input type="number" id="w5"  style="border-color:black"></th>
+    <th><input type="number" id="w6"  style="border-color:black"></th>
+    <th><input type="number" id="w7"  style="border-color:black"></th></tr>
+    <tr>
+        <th>Max weigth:</th>
+        <th></th>
+        
+        <th colspan="5"><input type="number" id="maxw"  style="border-color:black; width:300px;"></th>
+    </tr>
+    <tr>
+        <th></th>
+        <th colspan="7"><button id="result"  style="color:white;border-color:red; background-color:#043959; width:600px;" >submit</button></th>
+    </tr>
+    <tr>
+        <th></th>
+       <th colspan="7"> <input type = "button" id="reset" value = "Reset data" onClick="window.location.reload();" style="color:white;border-color:red; background-color:#043959; width:600px;"/></th>
+    </tr>
+</table>
+    <div id="div">
+    <p>please Fill in all option</p>
+    </div>
+    
+    <script src="{% static 'main.js' %}"></script>
+
+<body>
